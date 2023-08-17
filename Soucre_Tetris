@@ -1,0 +1,115 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TetrisGame extends JPanel implements ActionListener {
+    private static final int BOARD_WIDTH = 10;
+    private static final int BOARD_HEIGHT = 20;
+    private static final int BLOCK_SIZE = 30;
+    
+    private Timer timer;
+    private boolean[][] board;
+    private Tetromino currentTetromino;
+    
+    public TetrisGame() {
+        setPreferredSize(new Dimension(BOARD_WIDTH * BLOCK_SIZE, BOARD_HEIGHT * BLOCK_SIZE));
+        setBackground(Color.BLACK);
+        
+        board = new boolean[BOARD_HEIGHT][BOARD_WIDTH];
+        timer = new Timer(500, this);
+        timer.start();
+        
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                handleKeyPress(e);
+            }
+        });
+        
+        spawnTetromino();
+    }
+    
+    private void spawnTetromino() {
+        currentTetromino = new Tetromino();
+    }
+    
+    private void handleKeyPress(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            currentTetromino.moveLeft();
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            currentTetromino.moveRight();
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            currentTetromino.moveDown();
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+            currentTetromino.rotate();
+        }
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+        currentTetromino.moveDown();
+        repaint();
+    }
+    
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        // Draw the board
+        for (int y = 0; y < BOARD_HEIGHT; y++) {
+            for (int x = 0; x < BOARD_WIDTH; x++) {
+                if (board[y][x]) {
+                    g.setColor(Color.GRAY);
+                    g.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+                }
+            }
+        }
+        
+        // Draw the current tetromino
+        g.setColor(Color.RED);
+        for (Point block : currentTetromino.getBlocks()) {
+            g.fillRect(block.x * BLOCK_SIZE, block.y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+        }
+    }
+    
+    private class Tetromino {
+        private List<Point> blocks;
+        
+        public Tetromino() {
+            blocks = new ArrayList<>();
+            // Initialize blocks for the specific shape
+            // Add blocks to the list
+        }
+        
+        public List<Point> getBlocks() {
+            return blocks;
+        }
+        
+        public void moveLeft() {
+            // Move the blocks to the left
+        }
+        
+        public void moveRight() {
+            // Move the blocks to the right
+        }
+        
+        public void moveDown() {
+            // Move the blocks down
+            // Check for collision with the board
+        }
+        
+        public void rotate() {
+            // Rotate the blocks
+            // Check for collision with the board
+        }
+    }
+    
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Tetris Game");
+        TetrisGame game = new TetrisGame();
+        frame.add(game);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        game.requestFocusInWindow();
+    }
+}
