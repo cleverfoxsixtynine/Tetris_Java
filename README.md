@@ -27,8 +27,8 @@ Hello! I'm Galib Shifullah, a passionate Cyber Security Expert with a strong bac
 
 ## Connect with Me
 
-- LinkedIn: [Galib Shifullah](https://www.linkedin.com/in/galib-shifullah-381101220/)
-- Twitter: [@GalibShifullah](https://twitter.com/GalibShifullah)
+- LinkedIn: [Galib Shifullah](https://www.linkedin.com/dukesec/)
+- Twitter: [@GalibShifullah](https://twitter.com/dukesec)
 - Personal Website: [www.galibshifullah.com](https://www.galibshifullah.com)
 
 
