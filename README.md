@@ -4,7 +4,7 @@
 
 Hello! I'm Galib Shifullah, a passionate Cyber Security Expert with a strong background in securing digital systems and networks. I thrive on staying up-to-date with the latest advancements in the field and implementing effective strategies to protect against cyber threats.
 
-<script src="https://tryhackme.com/badge/2256614"></script>
+<script> src="https://tryhackme.com/badge/2256614"></script>
 
 ## Expertise
 
